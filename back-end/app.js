@@ -8,10 +8,12 @@ var usersRouter = require('./routes/users');
 
 
 const db = require('./config/dataBase')
-const dbUser = process.env.DB_USER
-const dbname = process.env.DB_Name
-const dbpass = process.env.DB_PASS
-db(`mongodb+srv://${dbUser}:${dbpass}@cluster0.no1fm.gcp.mongodb.net/${dbname}?retryWrites=true&w=majority`)
+const dbUser = 'Felipeleall'
+const dbPass = 'Dyth0218'
+const dbName = 'naotenhopaz'
+//db(`mongodb+srv://${dbUser}:${dbPass}@cluster0.no1fm.gcp.mongodb.net/${dbName}?retryWrites=true&w=majority`)
+db(`mongodb+srv://FelipeLeall:Dyth0218@cluster0.no1fm.gcp.mongodb.net/Cluster0?retryWrites=true&w=majority`)
+
 
 var app = express();
 
