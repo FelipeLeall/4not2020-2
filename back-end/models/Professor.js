@@ -1,31 +1,38 @@
 const mongoose = require('mongoose')
 
 const esquema = mongoose.Schema({
-    nome:{
+    nome: {
         type: String,
         required: true
     },
-    ementa:{
+    formacao: {
         type: String,
         required: true
     },
-    carga_horaria:{
+    data_nascimento: {
+        type: Date,
+        required: true
+    },
+    cpf: {
+        type: String,
+        required: true,
+        index:{unique: true}
+    },
+    rg:{
+        type: String,
+        required: true
+    },
+    valor_hora_aula: {
         type: Number,
         required: true,
-        min: 4,
-        max: 80
+        min: 15.0,
+        default: 20.75
     },
-    nivel:{
-        type:String,
+    email:{
+        type: String,
         required: true,
-        enum: ['Basico','Intermediário','Avançado']
+        index:{unique: true}
     },
-    valor_curso:{
-        type: Number,
-        required: true,
-        default: 450,
-        min: 50
-    }
 })
 
-module.exports = mongoose.model('Curso', esquema, 'curso')
+module.exports = mongoose.model('Professor', esquema, 'professores')

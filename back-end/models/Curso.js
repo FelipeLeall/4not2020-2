@@ -27,5 +27,4 @@ const esquema = mongoose.Schema({
         min: 50
     }
 })
-
 module.exports = mongoose.model('Curso', esquema, 'curso')
