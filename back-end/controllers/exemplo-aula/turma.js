@@ -1,6 +1,6 @@
 // Controller é um conjunto de funções associadas às operações sobre dados
 
-const SalaAula = require('../models/SalaAula.js')
+const Turma = require('../../models/exemplo-professor/Turma')
 
 const controller = {}   // Objeto vazio
 
@@ -9,7 +9,7 @@ controller.novo = async (req, res) => {
     // Usa os dados que chegam dentro do body da requisição
     // e os envia o BD para a criação de um novo objeto
     try {
-        await SalaAula.create(req.body)
+        await Turma.create(req.body)
         // HTTP 201: Created
         res.status(201).end()
     }
@@ -23,7 +23,11 @@ controller.novo = async (req, res) => {
 // Operação RETRIVE (all), função listar()
 controller.listar = async (req, res) => {
     try {
-        let dados = await SalaAula.find() //Traz todos os cursos cadastrados
+        //Traz todos os cursos cadastrados
+        let dados = await Turma.find()
+            .populate('curso', 'nome')
+            .populate('professor')
+            .populate('sala_aula', 'nome capacidade')
         res.send(dados)
 
     }
@@ -37,7 +41,7 @@ controller.listar = async (req, res) => {
 controller.obterUm = async (req, res)  => {
     try {
         const id = req.params.id
-        let obj = await SalaAula.findById(id)
+        let obj = await Turma.findById(id)
         //O objeto existe e foi encontrado
         if (obj) res.send(obj) //HTTP 200
         else res.status(404).end() //HTTP 404
@@ -54,7 +58,7 @@ controller.obterUm = async (req, res)  => {
 controller.atualizar = async (req, res)  => {
     try {
         const id = req.body._id
-        let ret = await SalaAula.findByIdAndUpdate(id, req.body)
+        let ret = await Turma.findByIdAndUpdate(id, req.body)
         //Se encontrou e achou
         if(ret)res.status(204).end()
         //Não encontrou
@@ -74,7 +78,7 @@ controller.atualizar = async (req, res)  => {
 controller.delete = async (req, res)  => {
     try {
         const id = req.body._id
-        let ret = await SalaAula.findByIdAndDelete(id, req.body)
+        let ret = await Turma.findByIdAndDelete(id, req.body)
         //Se encontrou e achou
         if(ret)res.status(204).end()
         //Não encontrou
