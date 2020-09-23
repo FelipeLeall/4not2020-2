@@ -6,13 +6,15 @@ var logger = require('morgan');
 var indexRouter = require('./routes/exemplo-aula/index');
 var usersRouter = require('./routes/exemplo-aula/users');
 
+require('./node_modules/dotenv/config')
+ 
 
 const db = require('./config/dataBase')
-const dbUser = 'Felipeleall'
-const dbPass = 'Dyth0218'
-const dbName = 'naotenhopaz'
-//db(`mongodb+srv://${dbUser}:${dbPass}@cluster0.no1fm.gcp.mongodb.net/${dbName}?retryWrites=true&w=majority`)
-db(`mongodb+srv://FelipeLeall:Dyth0218@cluster0.no1fm.gcp.mongodb.net/Cluster0?retryWrites=true&w=majority`)
+const dbUser = process.env.USER
+const dbPass = process.env.PASS
+const dbName = process.env.DBNAME
+db(`mongodb+srv://${dbUser}:${dbPass}@cluster0.no1fm.gcp.mongodb.net/${dbName}?retryWrites=true&w=majority`)
+
 
 
 var app = express();
