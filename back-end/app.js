@@ -43,5 +43,25 @@ app.use('/sala-aula', sala_aula)
 const turma = require('./routes/exemplo-aula/turma')
 app.use('/turma', turma)
 
+/*
+   ============================================================================================================== 
+   =========================================== para o Capilhete =================================================
+   ============================================================================================================== 
+*/
+
+const usuario = require('./routes/usuario')
+app.use('/usuario', usuario)
+
+const anotacao = require('./routes/anotacao')
+app.use('/anotacao', anotacao)
+
+const pasta = require('./routes/pasta')
+app.use('/pasta', pasta)
+
+const texto = require('./routes/texto')
+app.use('/texto', texto)
+
+const interface = require('./routes/interface')
+app.use('/interface', interface)
 
 module.exports = app;
