@@ -5,6 +5,10 @@ const esquema = mongoose.Schema({
         type:String,
         required: true
     },
+    font_link:{
+        type:String,
+        required: true
+    },
     
 })
 module.exports = mongoose.model('Texto', esquema, 'texto')
