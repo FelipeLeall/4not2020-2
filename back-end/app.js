@@ -16,8 +16,10 @@ const dbName = process.env.DBNAME
 db(`mongodb+srv://${dbUser}:${dbPass}@cluster0.no1fm.gcp.mongodb.net/${dbName}?retryWrites=true&w=majority`)
 
 
-
 var app = express();
+
+const cors = require('cors')
+app.use(cors())
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -28,8 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-const teste = require('./routes/exemplo-aula/teste');
-app.use('/teste', teste);
+// const teste = require('routes/exemplo-aula/teste');
+// app.use('/teste', teste);
 
 const curso = require('./routes/exemplo-aula/curso');
 app.use('/curso', curso);
