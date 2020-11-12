@@ -7,11 +7,18 @@ import { environment } from 'src/environments/environment';
 })
 
 export class CursoService {
-  private apiServe = environment.apiServe
+  
+  private apiServe: string = environment.apiServe
+  private apiUri: string = this.apiServe + 'curso'
 
   constructor(private http: HttpClient){}
   
       listar(){
-        return this.http.get(this.apiServe + "curso").toPromise()
+        return this.http.get(this.apiUri).toPromise()
+      }
+
+      excluir(id: string){
+        // return this.http.delete(this.apiServe + 'curso/' +id).toPromise()
+        return this.http.request('DELETE', this.apiUri, {body: {_id: id}}).toPromise()
       }
 }
