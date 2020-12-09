@@ -17,6 +17,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { CursolistComponent } from './curso/cursolist/cursolist.component';
 import { CursoFormComponent } from './curso/curso-form/curso-form.component';
 import { FormsModule } from '@angular/forms';
+import { TurmaListComponent } from './turma/turma-list/turmalist.component';
+import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
+import { HomeNavebarComponent } from './homepage/home-navebar/home-navebar.component';
+import { FontListComponent } from './font/font-list/font-list.component';
+import { FontFormComponent } from './font/font-form/font-form.component';
+import { InterfaceListComponent } from './interface/interface-list/interface-list.component';
+import { InterfaceFormComponent } from './interface/interface-form/interface-form.component';
+import { UsuarioListComponent } from './usuario/usuario-list/usuario-list.component';
+import { UsuarioFormComponent } from './usuario/usuario-form/usuario-form.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +35,17 @@ import { FormsModule } from '@angular/forms';
     MainFooterComponent,
     MainMenuComponent,
     CursolistComponent,
-    CursoFormComponent
+    CursoFormComponent,
+    TurmaListComponent,
+    TurmaFormComponent,
+    HomeNavebarComponent,
+    FontListComponent,
+    FontFormComponent,
+    InterfaceListComponent,
+    InterfaceFormComponent,
+    UsuarioListComponent,
+    UsuarioFormComponent,
+
   ],
   imports: [
     BrowserModule,

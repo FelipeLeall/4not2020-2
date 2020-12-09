@@ -6,10 +6,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 
-export class CursoService {
+export class SalaAulaService {
   
   private apiServe: string = environment.apiServe
-  private apiUri: string = this.apiServe + 'curso'
+  private apiUri: string = this.apiServe + 'sala-aula'
 
   constructor(private http: HttpClient){}
   

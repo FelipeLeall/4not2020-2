@@ -1,29 +1,23 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CursoService } from './../curso.service';
+import { FontService } from './../font.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { formatNumber, Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-curso-form',
-  templateUrl: './curso-form.component.html',
-  styleUrls: ['./curso-form.component.scss']
+  selector: 'app-font-form',
+  templateUrl: './font-form.component.html',
+  styleUrls: ['./font-form.component.scss']
 })
-export class CursoFormComponent implements OnInit {
+export class FontFormComponent implements OnInit {
 
-  curso: any = {}
+  texto: any = {}
 
-  niveis: any = [
-    { valor: 'Básico' },
-    { valor: 'Intermediário' },
-    { valor: 'Avançado' }
-  ]
-
-  title: string = 'Novo Curso'
+  title: string = 'Nova Fonte'
 
   constructor(
-    private cursoSrv: CursoService,
+    private fontSrv: FontService,
     private snackBar: MatSnackBar,
     private location: Location,
     private actRoute: ActivatedRoute
@@ -35,8 +29,8 @@ export class CursoFormComponent implements OnInit {
     // Verifica se existe o parâmetro id na URL
     if (this.actRoute.snapshot.params['id']) {
       try {
-        this.curso = await this.cursoSrv.obterUm(this.actRoute.snapshot.params['id'])
-        this.title = 'Editando curso'
+        this.texto = await this.fontSrv.obterUm(this.actRoute.snapshot.params['id'])
+        this.title = 'Editando Fonte'
       }
       catch (erro) {
         console.log(erro)
@@ -51,11 +45,11 @@ export class CursoFormComponent implements OnInit {
     if (form.valid) {
       try {
 
-        if (this.curso._id) {
-          await this.cursoSrv.atualizar(this.curso)
+        if (this.texto._id) {
+          await this.fontSrv.atualizar(this.texto)
         }
         else {
-          await this.cursoSrv.novo(this.curso)
+          await this.fontSrv.novo(this.texto)
         }
         this.snackBar.open('Dados salvos comsucesso.', 'Entendi', { duration: 3000 })
         this.location.back()

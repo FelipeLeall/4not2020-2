@@ -6,10 +6,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 
-export class CursoService {
+export class InterfaceService {
   
   private apiServe: string = environment.apiServe
-  private apiUri: string = this.apiServe + 'curso'
+  private apiUri: string = this.apiServe + 'interface'
 
   constructor(private http: HttpClient){}
   
@@ -33,7 +33,6 @@ export class CursoService {
       atualizar(body: any){
         return this.http.put(this.apiUri, body).toPromise()
       }
-
 
 }
 
