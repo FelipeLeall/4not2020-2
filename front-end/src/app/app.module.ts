@@ -26,6 +26,8 @@ import { InterfaceListComponent } from './interface/interface-list/interface-lis
 import { InterfaceFormComponent } from './interface/interface-form/interface-form.component';
 import { UsuarioListComponent } from './usuario/usuario-list/usuario-list.component';
 import { UsuarioFormComponent } from './usuario/usuario-form/usuario-form.component';
+import { AnotacaoListComponent } from './anotacao/anatacao-list/anatacao-list.component';
+import { AnotacaoFormComponent } from './anotacao/anotacao-form/anotacao-form.component';
 
 
 @NgModule({
@@ -45,6 +47,8 @@ import { UsuarioFormComponent } from './usuario/usuario-form/usuario-form.compon
     InterfaceFormComponent,
     UsuarioListComponent,
     UsuarioFormComponent,
+    AnotacaoListComponent,
+    AnotacaoFormComponent,
 
   ],
   imports: [

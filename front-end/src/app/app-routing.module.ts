@@ -1,3 +1,5 @@
+import { AnotacaoFormComponent } from './anotacao/anotacao-form/anotacao-form.component';
+import { AnotacaoListComponent } from './anotacao/anatacao-list/anatacao-list.component';
 import { InterfaceListComponent } from './interface/interface-list/interface-list.component';
 import { FontFormComponent } from './font/font-form/font-form.component';
 import { FontListComponent } from './font/font-list/font-list.component';
@@ -24,7 +26,12 @@ const routes: Routes = [
 
   {path: 'interface', component: InterfaceListComponent},
   {path: 'interface/novo', component: InterfaceFormComponent},
-  {path: 'interface/:id', component: InterfaceFormComponent}
+  {path: 'interface/:id', component: InterfaceFormComponent},
+
+  {path: 'anotacao', component: AnotacaoListComponent},
+  {path: 'anotacao/novo', component: AnotacaoFormComponent},
+  {path: 'anotacao/:id', component: AnotacaoFormComponent},
+
 
 ];
 

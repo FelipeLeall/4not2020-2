@@ -6,10 +6,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 
-export class UsuarioService {
+export class AnotacaoService {
   
   private apiServe: string = environment.apiServe
-  private apiUri: string = this.apiServe + 'usuario'
+  private apiUri: string = this.apiServe + 'anotacao'
 
   constructor(private http: HttpClient){}
   
@@ -18,7 +18,6 @@ export class UsuarioService {
       }
 
       excluir(id: string){
-        // return this.http.delete(this.apiServe + 'curso/' +id).toPromise()
         return this.http.request('DELETE', this.apiUri, {body: {_id: id}}).toPromise()
       }
 
@@ -33,6 +32,5 @@ export class UsuarioService {
       atualizar(body: any){
         return this.http.put(this.apiUri, body).toPromise()
       }
-
 }
 
